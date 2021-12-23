@@ -1,4 +1,4 @@
-import { useCatch, Link, json, useLoaderData } from "remix";
+import {useCatch, useLoaderData} from "remix";
 import axios from "axios";
 
 import stylesUrl from "~/styles/profile/$id.css";
@@ -34,6 +34,15 @@ export let loader = async ({ params }) => {
     return data
 
 }
+
+export let meta = (loader) => {
+    let data = loader.data
+    return {
+        title: (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
+        description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`)
+    };
+};
+
 
 export default function ParamDemo() {
     let data = useLoaderData();
@@ -131,13 +140,13 @@ export function ErrorBoundary({ error }) {
         </div>
     );
 }
-
+/*
 export let meta = () => {
     return {
         title: "Karen Bot Profile",
         description: "Karen Bot profile viewer"
     };
-};
+};*/
 /*
 let rankView
 if (data.profile.rank !== '') {
