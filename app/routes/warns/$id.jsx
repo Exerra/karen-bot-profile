@@ -19,7 +19,7 @@ export let loader = async ({ params }) => {
     let data2
     let error
 
-    await fetch('https://cdn.exerra.xyz/karen/profile?' + new URLSearchParams({
+    await fetch('https://api.exerra.xyz/karen/profile?' + new URLSearchParams({
         id: params.id,
         fetchUser: true,
         includeWarns: true
