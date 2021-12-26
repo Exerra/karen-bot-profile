@@ -5,7 +5,7 @@
   "license": "",
   "scripts": {
     "build": "remix build",
-    "dev": "remix watch",
+    "dev": "concurrently -p \"[{name}]\" -n \"Remix,MF\" -c \"bgBlue.bold,bgMagenta.bold\" \"remix watch\" \"npm run start\"",
     "postinstall": "remix setup cloudflare-workers",
     "build:worker": "esbuild --define:process.env.NODE_ENV='\"production\"' --minify --bundle --sourcemap --outdir=dist ./worker",
     "dev:worker": "esbuild --define:process.env.NODE_ENV='\"development\"' --bundle --sourcemap --outdir=dist ./worker",
@@ -18,6 +18,7 @@
     "@remix-run/cloudflare-workers": "^1.0.6",
     "@remix-run/react": "^1.0.6",
     "axios": "^0.24.0",
+    "concurrently": "^6.5.1",
     "framer-motion": "^4.1.17",
     "grommet": "^2.19.1",
     "react": "^17.0.2",
