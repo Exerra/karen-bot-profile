@@ -229,6 +229,7 @@ input:where([type="search"]) {
 
 .idButton {
   background-color: var(--color-background);
+  color: var(--color-foreground);
   border-radius: 20px;
   height: 40px;
   border: none;
