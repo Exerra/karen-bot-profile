@@ -226,3 +226,11 @@ input:where([type="search"]) {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.idButton {
+  background-color: var(--color-background);
+  border-radius: 20px;
+  height: 40px;
+  border: none;
+  font-size: 1rem;
+}
