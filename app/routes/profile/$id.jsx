@@ -49,31 +49,38 @@ export default function ParamDemo() {
 
     let rankView
     if (data.profile.rank !== '') {
-        rankView = <h3>Rank = {data.profile.rank}</h3>
+        data.id == "391878815263096833" ? rankView = <h3>🖥️ Karen Bot developer</h3> : rankView = <h3>🌸 Flowered</h3>
     }
 
     return (
         <div className="remix__page">
             <main id={"profile"}>
-                <h1>
-                   <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
-                </h1>
-                {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
-                {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
-                {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
+                <div className={""}>
+                    <h1>
+                        <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span>
+                    </h1>
+                    {rankView}
+                </div>
+                <hr />
+                <div className={""}>
+                    {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
+                    {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
+                    {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
 
 
-                <h3>Description - {data.profile.description}</h3>
+                    <h3>Description - {data.profile.description}</h3>
 
-                <h3>Gender - {data.profile.gender}</h3>
+                    <h3>Gender - {data.profile.gender}</h3>
 
-                <h3>Pronouns - {data.profile.pronouns}</h3>
+                    <h3>Pronouns - {data.profile.pronouns}</h3>
 
-                <h3>Birthday - {data.profile.birthday}</h3>
+                    <h3>Birthday - {data.profile.birthday}</h3>
 
-                <h3>Country - {data.profile.country}</h3>
+                    <h3>Country - {data.profile.country}</h3>
 
-                <h3>Languages - {data.profile.languages.replace(/\n/g, ", ").substr(2)}</h3>
+                    <h3>Languages - {data.profile.languages.replace(/\n/g, ", ").substr(2)}</h3>
+                </div>
+
             </main>
             <form method="post" className={"remix__form"} onSubmit={e => {e.preventDefault()}}>
                 <h2>Want to try it again?</h2>
