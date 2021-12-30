@@ -48,8 +48,17 @@ export default function ParamDemo() {
     let data = useLoaderData();
 
     let rankView
+    let webEmailTwitterView
     if (data.profile.rank !== '') {
         data.id == "391878815263096833" ? rankView = <h3>🖥️ Karen Bot developer</h3> : rankView = <h3>🌸 Flowered</h3>
+    }
+
+    if (data.profile.website !== '' || data.profile.email !== '' || data.profile.twitter !== '') {
+        webEmailTwitterView = <><br /><div className={"section"}>
+            {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
+            {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
+            {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
+        </div></>
     }
 
     return (
@@ -61,12 +70,7 @@ export default function ParamDemo() {
                     </h1>
                     {rankView}
                 </div>
-                <br />
-                <div className={"section"}>
-                    {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
-                    {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
-                    {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
-                </div>
+                {webEmailTwitterView}
                 <br/>
                 <div className={"section"}>
                     <h3>Description - {data.profile.description}</h3>
