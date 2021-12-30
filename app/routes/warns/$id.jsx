@@ -59,15 +59,17 @@ export default function ParamDemo() {
     }
 
     return (
-        <div className="remix__page">
+        <div className="">
+            <br />
             <h1>
                 All warns for <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
             </h1>
+            <div className={"remix__page section"}>
 
-            <hr/>
 
-
-            {warnView}
+                {warnView}
+            </div>
+            <br />
         </div>
     );
 }

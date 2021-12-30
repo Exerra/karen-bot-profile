@@ -55,19 +55,20 @@ export default function ParamDemo() {
     return (
         <div className="remix__page">
             <main id={"profile"}>
-                <div className={""}>
+                <div className={"section"}>
                     <h1>
                         <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span>
                     </h1>
                     {rankView}
                 </div>
-                <hr />
-                <div className={""}>
+                <br />
+                <div className={"section"}>
                     {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
                     {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
                     {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
-
-
+                </div>
+                <br/>
+                <div className={"section"}>
                     <h3>Description - {data.profile.description}</h3>
 
                     <h3>Gender - {data.profile.gender}</h3>
