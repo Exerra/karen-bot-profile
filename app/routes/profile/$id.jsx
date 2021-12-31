@@ -38,7 +38,7 @@ export let meta = (loader) => {
 };
 
 
-export default function ParamDemo() {
+export default function Profile() {
     let data = useLoaderData();
 
     let rankView

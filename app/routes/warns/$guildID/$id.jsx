@@ -31,7 +31,7 @@ export let loader = async ({ params }) => {
 
 }
 
-export default function ParamDemo() {
+export default function WarnView() {
     let data = useLoaderData();
 
     let warnView = []
