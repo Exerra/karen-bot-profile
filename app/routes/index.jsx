@@ -4,7 +4,8 @@ import { useLoaderData, json, Link, Form, redirect } from "remix";
 export let meta = () => {
   return {
     title: "Karen Bot Profile",
-    description: "Karen Bot profile viewer"
+    description: "Karen Bot profile viewer",
+	  "theme-color": "hsl(210, 60%, 96%)"
   };
 };
 

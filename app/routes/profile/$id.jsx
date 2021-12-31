@@ -39,7 +39,8 @@ export let meta = (loader) => {
     let data = loader.data
     return {
         title: (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
-        description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`)
+        description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`),
+        "theme-color": "hsl(210, 60%, 96%)"
     };
 };
 
