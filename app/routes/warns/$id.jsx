@@ -1,20 +1,6 @@
 import { useCatch, Link, json, useLoaderData } from "remix";
-import axios from "axios";
-
-import stylesUrl from "~/styles/profile/$id.css";
 import lottieEmpty from "~/modules/lottie";
 import warnItem from "~/modules/warn";
-//import script from "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-
-export let links = () => {
-    return null //[{ rel: "stylesheet", href: stylesUrl }];
-};
-
-export let scripts = () => {
-	return [{ src: "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" }]
-}
-
-let paramsObj = {}
 
 export let loader = async ({ params }) => {
     if (params.id.match(/[0-9]{18}/) == false) {
@@ -129,27 +115,3 @@ export let meta = () => {
         description: "Karen Bot profile viewer"
     };
 };
-/*
-let rankView
-if (data.profile.rank !== '') {
-    rankView = <h3>Rank = {data.profile.rank}</h3>
-}
-<main>
-    <h1>
-        Profile for <i style={{ color: "#AD91FF" }}>{data.id}</i> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
-    </h1>
-    {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
-    {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
-    {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
-
-
-    <h3>Description - {data.profile.description}</h3>
-
-    <h3>Gender - {data.profile.gender}</h3>
-
-    <h3>Birthday - {data.profile.birthday}</h3>
-
-    <h3>Country - {data.profile.country}</h3>
-
-    <h3>Languages - {data.profile.languages.replace(/\n/g, ", ").substr(2)}</h3>
-</main>*/

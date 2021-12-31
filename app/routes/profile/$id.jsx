@@ -1,13 +1,5 @@
 import {useCatch, useLoaderData} from "remix";
-import axios from "axios";
-
-import stylesUrl from "~/styles/profile/$id.css";
 import idForm from "~/modules/idForm";
-
-export let links = () => {
-    return null //[{ rel: "stylesheet", href: stylesUrl }];
-};
-
 
 export let loader = async ({ params }) => {
     if (params.id.match(/[0-9]{18}/) == false) {
