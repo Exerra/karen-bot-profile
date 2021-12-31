@@ -48,11 +48,14 @@ export default function Profile() {
     if (data.id === "391878815263096833") rankView = <h3>🖥️ Karen Bot developer</h3>
 
     if (data.profile.website !== '' || data.profile.email !== '' || data.profile.twitter !== '') {
-        webEmailTwitterView = <><br /><div className={"section"}>
-            {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
-            {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
-            {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
-        </div></>
+        webEmailTwitterView = <>
+            <br />
+            <div className={"section"}>
+                {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
+                {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
+                {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
+            </div>
+        </>
     }
 
     return (
