@@ -43,9 +43,9 @@ export default function ParamDemo() {
 
     let rankView
     let webEmailTwitterView
-    if (data.profile.rank !== '') {
-        data.id == "391878815263096833" ? rankView = <h3>🖥️ Karen Bot developer</h3> : rankView = <h3>🌸 Flowered</h3>
-    }
+
+    if (data.profile.rank !== '') rankView = <h3>🌸 Flowered</h3>
+    if (data.id == "391878815263096833") rankView = <h3>🖥️ Karen Bot developer</h3>
 
     if (data.profile.website !== '' || data.profile.email !== '' || data.profile.twitter !== '') {
         webEmailTwitterView = <><br /><div className={"section"}>
