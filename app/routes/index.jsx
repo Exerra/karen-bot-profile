@@ -55,14 +55,18 @@ export default function Index() {
   return (
     <div className="remix__page">
       <main>
-        <h1 style={{ color: "#AD91FF" }}>Profile viewer</h1>
-        <p>You can use this website to check Karen Bot profiles</p>
-        <hr></hr>
-        <h2>FAQ</h2>
-        <h3>Q: Are all profiles public?</h3>
-        <p>A: Well, yes. The rationale is that all profiles were already public thru Karen Bot, so why not create a nice and simple dashboard?</p>
-        <h3>Q: What happened to Spotify data collection</h3>
-        <p>Got postponed until v3 of the profile system, which will completely redesign profiles to be more of an identity system (along the lines of Sign in with Google) to allow developers to use a privacy oriented identity system.</p>
+	  	<div className={"section"}>
+			<h1 style={{ color: "#AD91FF" }}>Profile viewer</h1>
+			<p>You can use this website to check Karen Bot profiles</p>
+		</div>
+        <br />
+		<div className={"section"}>
+			<h2>FAQ</h2>
+			<h3>Q: Are all profiles public?</h3>
+			<p>A: Well, yes. The rationale is that all profiles were already public thru Karen Bot, so why not create a nice and simple dashboard?</p>
+			<h3>Q: What happened to Spotify data collection</h3>
+			<p>Got postponed until v3 of the profile system, which will completely redesign profiles to be more of an identity system (along the lines of Sign in with Google) to allow developers to use a privacy oriented identity system.</p>
+		</div>
       </main>
 
       <form method="post" className={"remix__form"} onSubmit={e => {e.preventDefault()}}>
