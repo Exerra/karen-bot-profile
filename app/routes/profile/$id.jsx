@@ -2,6 +2,7 @@ import {useCatch, useLoaderData} from "remix";
 import axios from "axios";
 
 import stylesUrl from "~/styles/profile/$id.css";
+import idForm from "~/modules/idForm";
 
 export let links = () => {
     return null //[{ rel: "stylesheet", href: stylesUrl }];
@@ -88,19 +89,7 @@ export default function ParamDemo() {
                 </div>
 
             </main>
-            <form method="post" className={"remix__form"} onSubmit={e => {e.preventDefault()}}>
-                <h2>Want to try it again?</h2>
-                <p>
-                    <i>Discord ID's look like this <span className={"accent"}>391878815263096833</span></i>
-                </p>
-                <input name="id" type="text" />
-                <button className={"idButton"} type="submit" onClick={() => {
-                    console.log(document.getElementsByTagName("input")[0].value)
-                    window.location.href = `/profile/${document.getElementsByTagName("input")[0].value}`
-                }} >
-                    Submit
-                </button>
-            </form>
+            {idForm("Want to try your luck again?")}
         </div>
     );
 }
@@ -127,60 +116,22 @@ export function ErrorBoundary({ error }) {
     return (
         <div className="remix__page">
             <main>
-                <h1>
-                    Profile could not be found
-                </h1>
-                <hr></hr>
-                <h2>Possible causes</h2>
-                <h3>User has not created a profile</h3>
-                <p>If the user has not created a profile thru Karen Bot (or had it auto created when joining a guild with the bot in it), then it is not in our system. Tell them to create one.</p>
-                <h3>API has problems</h3>
-                <p>It is also possible that the API that has the profiles is either down or has a bug that prevents it from sending the profile. Rest assured, if this happens then the appropriate people have already been notified and are working on a fix.</p>
+                <div className={"section"}>
+                    <h1>
+                        Profile could not be found
+                    </h1>
+                </div>
+                <br />
+                <div className={"section"}>
+                    <h2>Possible causes</h2>
+                    <h3>User has not created a profile</h3>
+                    <p>If the user has not created a profile thru Karen Bot (or had it auto created when joining a guild with the bot in it), then it is not in our system. Tell them to create one.</p>
+                    <h3>API has problems</h3>
+                    <p>It is also possible that the API that has the profiles is either down or has a bug that prevents it from sending the profile. Rest assured, if this happens then the appropriate people have already been notified and are working on a fix.</p>
+                </div>
+
             </main>
-            <form method="post" className={"remix__form"} onSubmit={e => {e.preventDefault()}}>
-                <h2>Want to try your luck again?</h2>
-                <p>
-                    <i>Discord ID's look like this <span style={{ color: "#AD91FF" }}>391878815263096833</span></i>
-                </p>
-                <input name="id" type="text" />
-                <button type="submit" onClick={() => {
-                    console.log(document.getElementsByTagName("input")[0].value)
-                    window.location.href = `/profile/${document.getElementsByTagName("input")[0].value}`
-                }} >
-                    Submit
-                </button>
-            </form>
+            {idForm("Want to try your luck again?")}
         </div>
     );
 }
-/*
-export let meta = () => {
-    return {
-        title: "Karen Bot Profile",
-        description: "Karen Bot profile viewer"
-    };
-};*/
-/*
-let rankView
-if (data.profile.rank !== '') {
-    rankView = <h3>Rank = {data.profile.rank}</h3>
-}
-<main>
-    <h1>
-        Profile for <i style={{ color: "#AD91FF" }}>{data.id}</i> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
-    </h1>
-    {data.profile.website !== '' ? <h3>Website - <a href={data.profile.website}>{data.profile.website.replace(/(^\w+:|^)\/\//, '')}</a></h3> : ''}
-    {data.profile.email !== '' ? <h3>Email - <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></h3> : ''}
-    {data.profile.twitter !== '' ? <h3>Twitter - <a href={`https://twitter.com/${data.profile.twitter}`}>@{data.profile.twitter}</a></h3> : ''}
-
-
-    <h3>Description - {data.profile.description}</h3>
-
-    <h3>Gender - {data.profile.gender}</h3>
-
-    <h3>Birthday - {data.profile.birthday}</h3>
-
-    <h3>Country - {data.profile.country}</h3>
-
-    <h3>Languages - {data.profile.languages.replace(/\n/g, ", ").substr(2)}</h3>
-</main>*/

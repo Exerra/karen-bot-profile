@@ -2,6 +2,8 @@ import { useCatch, Link, json, useLoaderData } from "remix";
 import axios from "axios";
 
 import stylesUrl from "~/styles/profile/$id.css";
+import lottieEmpty from "~/modules/lottie";
+import warnItem from "~/modules/warn";
 
 export let links = () => {
     return null //[{ rel: "stylesheet", href: stylesUrl }];
@@ -49,38 +51,21 @@ export default function ParamDemo() {
 
     for (let i in data.warns) {
         let warn = data.warns[i]
-        warnView.push(
-            <div className={"section"} key={warn.id}>
-                <h3 className={"accent"}>{warn.id}</h3>
-                <p><b>Reason</b> - {warn.reason}</p>
-                <p><b>Moderator</b> - <Link to={`../../profile/${warn.moderator}`}>{warn.moderator}</Link></p>
-                <p><b>Guild</b> - {warn.guild}</p>
-                <p><b>Date</b> - {new Date(warn.date).toISOString().substring(0, 10)}</p>
-            </div>
-        )
+        warnView.push(warnItem(warn))
     }
 
 	if (data.warns.length == 0) {
-		warnView.push(
-			<>
-				<h3>Once upon a time, there was nothing...</h3>
-				<br />
-				<script key={"smgh"} src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-				<lottie-player key={"luuti"} src="https://assets3.lottiefiles.com/packages/lf20_ydo1amjm.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
-			</>
-		)
+		warnView.push(lottieEmpty())
 	}
 
     return (
-        <div className="">
+        <div>
             <br />
             <h1>
                 Guild warns for <span className={"accent"}>{data.username}#{data.discriminator}</span> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
             </h1>
 
             <div className={`${data.warns.length == 0 ? "section" : "remix__page"}`}>
-
-
                 {warnView}
             </div>
             <br />
