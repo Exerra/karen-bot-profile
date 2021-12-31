@@ -2,10 +2,15 @@ import { useCatch, Link, json, useLoaderData } from "remix";
 import axios from "axios";
 
 import stylesUrl from "~/styles/profile/$id.css";
+//import script from "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
 
 export let links = () => {
     return null //[{ rel: "stylesheet", href: stylesUrl }];
 };
+
+export let scripts = () => {
+	return [{ src: "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" }]
+}
 
 let paramsObj = {}
 
@@ -57,6 +62,17 @@ export default function ParamDemo() {
             </div>
         )
     }
+
+	if (data.warns.length == 0) {
+		warnView.push(
+			<>
+				<h3>Once upon a time, there was nothing...</h3>
+				<br />
+				<script key={"smgh"} src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player key={"luuti"} src="https://assets3.lottiefiles.com/packages/lf20_ydo1amjm.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
+			</>
+		)
+	}
 
     return (
         <div className="">
