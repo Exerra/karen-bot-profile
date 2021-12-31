@@ -5,7 +5,7 @@ export let meta = () => {
   return {
     title: "Karen Bot Profile",
     description: "Karen Bot profile viewer",
-	  "theme-color": "hsl(210, 60%, 96%)"
+  	"theme-color": "#EFF5FB"
   };
 };
 
