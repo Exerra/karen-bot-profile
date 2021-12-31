@@ -45,7 +45,7 @@ export default function ParamDemo() {
     let webEmailTwitterView
 
     if (data.profile.rank !== '') rankView = <h3>🌸 Flowered</h3>
-    if (data.id == "391878815263096833") rankView = <h3>🖥️ Karen Bot developer</h3>
+    if (data.id === "391878815263096833") rankView = <h3>🖥️ Karen Bot developer</h3>
 
     if (data.profile.website !== '' || data.profile.email !== '' || data.profile.twitter !== '') {
         webEmailTwitterView = <><br /><div className={"section"}>
@@ -79,7 +79,6 @@ export default function ParamDemo() {
 
                     <h3>Languages - {data.profile.languages.replace(/\n/g, ", ").substr(2)}</h3>
                 </div>
-
             </main>
             {idForm("Want to try your luck again?")}
         </div>
