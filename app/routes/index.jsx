@@ -15,7 +15,7 @@ export default function Index() {
     <div className="remix__page">
       <main>
 	  	<div className={"section"}>
-			<h1 style={{ color: "#AD91FF" }}>Profile viewer</h1>
+			<h1 className={"accent"}>Profile viewer</h1>
 			<p>You can use this website to check Karen Bot profiles</p>
 		</div>
         <br />
@@ -31,7 +31,7 @@ export default function Index() {
       <form method="post" className={"remix__form"} onSubmit={e => {e.preventDefault()}}>
         <h2>Specify the ID</h2>
         <p>
-          <i>Discord ID's look like this <span style={{ color: "#AD91FF" }}>391878815263096833</span></i>
+          <i>Discord ID's look like this <span className={"accent"}>391878815263096833</span></i>
         </p>
         <input name="id" type="text" />
         <button className={"idButton"} type="submit" onClick={() => {

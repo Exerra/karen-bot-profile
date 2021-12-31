@@ -229,9 +229,17 @@ input:where([type="search"]) {
 
 .idButton {
   background-color: var(--color-background);
-  color: var(--color-foreground);
+  color: hsl(210, 60%, 48%);
   border-radius: 20px;
   height: 40px;
   border: none;
   font-size: 1rem;
+}
+
+.accent {
+  color: hsl(210, 60%, 48%);
+}
+
+.accentOrange {
+  color: hsl(20, 100%, 70%)
 }

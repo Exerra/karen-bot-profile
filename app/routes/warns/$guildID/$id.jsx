@@ -50,13 +50,12 @@ export default function ParamDemo() {
     for (let i in data.warns) {
         let warn = data.warns[i]
         warnView.push(
-            <div key={warn.id}>
-                <h3 style={{ color: "#AD91FF" }}>{warn.id}</h3>
-                <p>Reason - {warn.reason}</p>
-                <p>Moderator - <Link to={`../../profile/${warn.moderator}`}>{warn.moderator}</Link></p>
-                <p>Guild - {warn.guild}</p>
-                <p>Date - {new Date(warn.date).toISOString().substring(0, 10)}</p>
-                <hr/>
+            <div className={"section"} key={warn.id}>
+                <h3 className={"accent"}>{warn.id}</h3>
+                <p><b>Reason</b> - {warn.reason}</p>
+                <p><b>Moderator</b> - <Link to={`../../profile/${warn.moderator}`}>{warn.moderator}</Link></p>
+                <p><b>Guild</b> - {warn.guild}</p>
+                <p><b>Date</b> - {new Date(warn.date).toISOString().substring(0, 10)}</p>
             </div>
         )
     }
@@ -76,10 +75,10 @@ export default function ParamDemo() {
         <div className="">
             <br />
             <h1>
-                Guild warns for <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
+                Guild warns for <span className={"accent"}>{data.username}#{data.discriminator}</span> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
             </h1>
 
-            <div className={`${data.warns.length == 0 ? "" : "remix__page"} section`}>
+            <div className={`${data.warns.length == 0 ? "section" : "remix__page"}`}>
 
 
                 {warnView}

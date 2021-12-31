@@ -66,7 +66,7 @@ export default function ParamDemo() {
             <main id={"profile"}>
                 <div className={"section"}>
                     <h1>
-                        <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span>
+                        <span className={"accent"}>{data.username}#{data.discriminator}</span>
                     </h1>
                     {rankView}
                 </div>
@@ -90,7 +90,7 @@ export default function ParamDemo() {
             <form method="post" className={"remix__form"} onSubmit={e => {e.preventDefault()}}>
                 <h2>Want to try it again?</h2>
                 <p>
-                    <i>Discord ID's look like this <span style={{ color: "#AD91FF" }}>391878815263096833</span></i>
+                    <i>Discord ID's look like this <span className={"accent"}>391878815263096833</span></i>
                 </p>
                 <input name="id" type="text" />
                 <button className={"idButton"} type="submit" onClick={() => {
