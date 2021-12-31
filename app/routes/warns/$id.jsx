@@ -80,7 +80,7 @@ export default function ParamDemo() {
             <h1>
                 All warns for <span style={{ color: "#AD91FF" }}>{data.username}#{data.discriminator}</span> {data.profile.rank !== '' ? `- ${data.profile.rank}` : ''}
             </h1>
-            <div className={"remix__page section"}>
+            <div className={`${data.warns.length == 0 ? "" : "remix__page"} section`}>
 
 
                 {warnView}
