@@ -36,7 +36,11 @@ export let meta = (loader) => {
         description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`),
         "theme-color": "#EFF5FB",
         "og:image": data.avatar.url.png,
-        "twitter:image": data.avatar.url.png
+        "twitter:card": "summary",
+        "twitter:image": data.avatar.url.png,
+        "twitter:site": "@Exerra",
+        "twitter:title": (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
+        "twitter:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`),
     };
 };
 
