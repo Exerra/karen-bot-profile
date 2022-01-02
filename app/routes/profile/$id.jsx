@@ -66,6 +66,9 @@ export default function Profile() {
         </>
     }
 
+    data.profile.description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '<a href={"$2"}>$1</a>')
+
+
     return (
         <div className="remix__page">
             <main id={"profile"}>
@@ -78,7 +81,7 @@ export default function Profile() {
                 {webEmailTwitterView}
                 <br/>
                 <div className={"section"}>
-                    <h3>Description - {data.profile.description}</h3>
+                    <h3>Description - <span dangerouslySetInnerHTML={{__html: data.profile.description}} /></h3>
 
                     <h3>Gender - {data.profile.gender}</h3>
 
