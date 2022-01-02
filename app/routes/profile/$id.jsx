@@ -53,6 +53,7 @@ export default function Profile() {
 
     if (data.profile.rank !== '') rankView = <h3>🌸 Flowered</h3>
     if (data.id === "391878815263096833") rankView = <h3>🖥️ Karen Bot developer</h3>
+    if (data.profile.antivaxxer == true) rankView = <h3>💉 Anti-vaxx moron</h3>
 
     if (data.profile.website !== '' || data.profile.email !== '' || data.profile.twitter !== '') {
         webEmailTwitterView = <>
