@@ -2,6 +2,27 @@ import {useCatch, useLoaderData} from "remix";
 import idForm from "~/modules/idForm";
 import globalStylesUrl from "~/styles/global.css";
 
+const genders = {
+    female: [
+        "female",
+        "girl",
+        "gill",
+        "woman",
+        "waman",
+        "grill"
+    ],
+    male: [
+        "man",
+        "male",
+        "boy",
+        "mayn",
+        "big manly man",
+        "big-manly-man",
+        "zip zap zoom juice-ician" // a friend has this
+    ]
+}
+
+
 export let loader = async ({ params }) => {
     if (params.id.match(/[0-9]{18}/) == false) {
         throw new Response("Invalid regex", { status: 400 })
@@ -31,13 +52,16 @@ export let loader = async ({ params }) => {
 
 export let meta = (loader) => {
     let data = loader.data
+    let metaObj = {}
 
     if (data.status != undefined) {
-        return {
+        metaObj = {
             title: "Karen Bot profile",
             description: "Karen Bot profile viewer",
             "theme-color": "#EFF5FB"
         }
+
+        return metaObj
     }
 
     let description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')
@@ -45,23 +69,20 @@ export let meta = (loader) => {
     const determineGenderEnum = () => {
         let assignedGender = data.profile.gender
 
-        switch (assignedGender) {
-            case "female":
-                return "female"
-            case "male":
-                return "male"
-            case "gill":
-                return "female"
-            case "boy":
-                return "male"
-            case "grill":
-                return "female"
+        for (let femaleGender of genders.female) {
+            if (assignedGender.toLowerCase() === femaleGender) return "female"
         }
+
+        for (let maleGender of genders.male) {
+            if (assignedGender.toLowerCase() === maleGender) return "male"
+        }
+
+        return ""
     }
 
     let gender = determineGenderEnum()
 
-    return {
+    metaObj = {
         title: `${data.username}'s profile`,
         description: description,
         "theme-color": "#EFF5FB",
@@ -75,9 +96,12 @@ export let meta = (loader) => {
         "og:title": `${data.username}'s profile`,
         "og:description": description,
         "og:type": "profile",
-        "profile:username": data.username,
-        "profile:gender": gender
+        "profile:username": data.username
     };
+
+    if (gender != "") metaObj["profile:gender"] = gender
+
+    return metaObj
 };
 
 
