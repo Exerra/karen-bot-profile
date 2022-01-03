@@ -33,14 +33,14 @@ export let meta = (loader) => {
     let data = loader.data
     return {
         title: (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
-        description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`),
+        description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
         "theme-color": "#EFF5FB",
         "og:image": (data.status != undefined ? "" : `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`),
         "twitter:card": "summary",
         "twitter:image": (data.status != undefined ? "" : `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`),
         "twitter:site": "@Exerra",
         "twitter:title": (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
-        "twitter:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description}`),
+        "twitter:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
     };
 };
 
@@ -66,7 +66,7 @@ export default function Profile() {
         </>
     }
 
-    data.profile.description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '<a href={"$2"}>$1</a>')
+    data.profile.description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '<a href="$2">$1</a>')
 
 
     return (
