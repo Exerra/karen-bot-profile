@@ -31,19 +31,52 @@ export let loader = async ({ params }) => {
 
 export let meta = (loader) => {
     let data = loader.data
+
+    if (data.status != undefined) {
+        return {
+            title: "Karen Bot profile",
+            description: "Karen Bot profile viewer",
+            "theme-color": "#EFF5FB"
+        }
+    }
+
+    let description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')
+
+    const determineGenderEnum = () => {
+        let assignedGender = data.profile.gender
+
+        switch (assignedGender) {
+            case "female":
+                return "female"
+            case "male":
+                return "male"
+            case "gill":
+                return "female"
+            case "boy":
+                return "male"
+            case "grill":
+                return "female"
+        }
+    }
+
+    let gender = determineGenderEnum()
+
     return {
-        title: (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
-        description: (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
+        title: `${data.username}'s profile`,
+        description: description,
         "theme-color": "#EFF5FB",
         "twitter:card": "summary",
-        "twitter:image": (data.status != undefined ? "" : `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`),
+        "twitter:image": `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`,
         "twitter:site": "@Exerra",
-        "twitter:title": (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
-        "twitter:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
-        "og:image": (data.status != undefined ? "" : `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png?size=240`),
-        "og:url": (data.status != undefined ? "https://check.exerra.xyz/profile" : `https://check.exerra.xyz/profile/${data.id}`),
-        "og:title": (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
-        "og:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
+        "twitter:title": `${data.username}'s profile`,
+        "twitter:description": description,
+        "og:image": `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png?size=240`,
+        "og:url": `https://check.exerra.xyz/profile/${data.id}`,
+        "og:title": `${data.username}'s profile`,
+        "og:description": description,
+        "og:type": "profile",
+        "profile:username": data.username,
+        "profile:gender": gender
     };
 };
 
