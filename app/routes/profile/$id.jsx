@@ -40,7 +40,7 @@ export let meta = (loader) => {
         "twitter:site": "@Exerra",
         "twitter:title": (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
         "twitter:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
-        "og:image": (data.status != undefined ? "" : `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`),
+        "og:image": (data.status != undefined ? "" : `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png?size=240`),
         "og:url": (data.status != undefined ? "https://check.exerra.xyz/profile" : `https://check.exerra.xyz/profile/${data.id}`),
         "og:title": (data.status != undefined ? "Karen Bot profile" : `${data.username}'s profile`),
         "og:description": (data.status != undefined ? "Karen Bot profile viewer\n" : `${data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '$1')}`),
