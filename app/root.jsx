@@ -9,6 +9,8 @@ import {
   useCatch
 } from "remix";
 
+import pageDoesntExist from "~/modules/404";
+
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
 
@@ -71,9 +73,7 @@ export function CatchBoundary() {
       );
       break;
     case 404:
-      message = (
-        <p>Oops! Looks like you tried to visit a page that does not exist.</p>
-      );
+      message = pageDoesntExist()
       break;
 
     default:
@@ -83,9 +83,6 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
         {message}
       </Layout>
     </Document>
