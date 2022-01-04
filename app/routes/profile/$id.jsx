@@ -69,6 +69,7 @@ export let meta = (loader) => {
             "og:url": `https://check.exerra.xyz`,
             "og:title": title,
             "og:description": description,
+            "og:type": "profile",
             "theme-color": "#EFF5FB"
         }
 
