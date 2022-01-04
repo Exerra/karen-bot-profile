@@ -55,9 +55,11 @@ export let meta = (loader) => {
     let metaObj = {}
 
     if (data.status != undefined) {
+        let title = `Profile viewer`
+        let description = "Karen Bot profile & warn viewer"
         metaObj = {
-            title: "Karen Bot profile",
-            description: "Karen Bot profile viewer",
+            title: title,
+            description: description,
             "twitter:image": "https://karen.exerra.xyz/BotLogoNoOutline.png",
             "twitter:card": "summary",
             "twitter:site": "@Exerra",
