@@ -58,6 +58,15 @@ export let meta = (loader) => {
         metaObj = {
             title: "Karen Bot profile",
             description: "Karen Bot profile viewer",
+            "twitter:image": "https://karen.exerra.xyz/BotLogoNoOutline.png",
+            "twitter:card": "summary",
+            "twitter:site": "@Exerra",
+            "twitter:title": title,
+            "twitter:description": description,
+            "og:image": `https://karen.exerra.xyz/BotLogoNoOutline.png`,
+            "og:url": `https://check.exerra.xyz`,
+            "og:title": title,
+            "og:description": description,
             "theme-color": "#EFF5FB"
         }
 
