@@ -81,19 +81,20 @@ export let meta = (loader) => {
     }
 
     let gender = determineGenderEnum()
+    let title = `${data.username}'s profile`
 
     metaObj = {
-        title: `${data.username}'s profile`,
+        title: title,
         description: description,
         "theme-color": "#EFF5FB",
         "twitter:card": "summary",
         "twitter:image": `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`,
         "twitter:site": "@Exerra",
-        "twitter:title": `${data.username}'s profile`,
+        "twitter:title": title,
         "twitter:description": description,
         "og:image": `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png?size=240`,
         "og:url": `https://check.exerra.xyz/profile/${data.id}`,
-        "og:title": `${data.username}'s profile`,
+        "og:title": title,
         "og:description": description,
         "og:type": "profile",
         "profile:username": data.username
