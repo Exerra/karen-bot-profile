@@ -6,7 +6,8 @@ import { config } from "~/util/info.server"
 import {destroySession, getSession} from "~/util/sessions";
 import {deleteDocument, getUserFromDB} from "~/util/db.server";
 
-export let loader = async ({ request }) => {
+export let loader = async ({ request, env }) => {
+	console.log(env)
 	const session = await getSession(
 		request.headers.get("Cookie")
 	);

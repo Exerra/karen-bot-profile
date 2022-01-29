@@ -1,5 +1,5 @@
-let config = self["DISCORD"]
-let firebase = self["FIREBASE"]
-let privateKey = self["FIRESTORE"]
+let config = DISCORD
+let firebase = FIREBASE
+let privateKey = FIRESTORE
 
 export { config, firebase, privateKey }
