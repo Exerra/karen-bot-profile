@@ -1,5 +1,5 @@
-import { firebase as fbconf } from "~/info.js"
-import { getAccessToken } from "~/utils/jwt";
+import { firebase as fbconf } from "~/util/info.server"
+import { getAccessToken } from "~/util/jwt.server";
 
 // added this before I realized firebase can auto gen ids
 // also um not needed anymore

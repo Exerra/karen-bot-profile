@@ -1,5 +1,5 @@
 import { getTokenFromGCPServiceAccount } from '@sagi.io/workers-jwt'
-import { privateKey } from "~/info"
+import { privateKey } from "~/util/info.server"
 
 /**
  * Getting the access token to use in the header.
