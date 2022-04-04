@@ -16,14 +16,28 @@ export let loader = async ({ params }) => {
         id: params.id,
         fetchUser: true,
         includeWarns: true
-    })).then(res => {
-        data = res
+    })).then(async res => {
+        data = await res.json()
     }).catch(err => {
         throw new Response("Not Found", { status: 404 });
     })
 
     if (error) {
         throw new Response("Not Found", { status: 404 });
+    }
+
+    let warners = new Map()
+
+    for (let warn of data.warns) {
+        if (warners.has(warn.moderator)) continue
+
+        let moderator = await (await fetch(`https://api.exerra.xyz/karen/profile?id=${warn.moderator}&fetchUser=true`)).json()
+
+        warners.set(warn.moderator, moderator)
+    }
+
+    for (let i in data.warns) {
+        data.warns[i].moderatorProfile = warners.get(data.warns[i].moderator)
     }
 
     return data
