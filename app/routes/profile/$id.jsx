@@ -1,6 +1,7 @@
 import {useCatch, useLoaderData} from "remix";
 import idForm from "~/modules/idForm";
 import globalStylesUrl from "~/styles/global.css";
+import Markdown from "markdown-to-jsx";
 
 const genders = {
     female: [
@@ -117,6 +118,27 @@ export let meta = (loader) => {
     return metaObj
 };
 
+class EmptyImg extends React.Component {
+    render() {
+        return <></>
+    }
+}
+
+let emptyComponentConf = {
+    component: EmptyImg
+}
+
+let mdConfig = {
+    disableParsingRawHTML: false,
+    overrides: {
+        img: emptyComponentConf,
+        script: emptyComponentConf,
+        button: emptyComponentConf,
+        form: emptyComponentConf,
+        input: emptyComponentConf
+    }
+}
+
 
 export default function Profile() {
     let data = useLoaderData();
@@ -155,7 +177,7 @@ export default function Profile() {
                 {webEmailTwitterView}
                 <br/>
                 <div className={"section"}>
-                    <h3>Description - <span dangerouslySetInnerHTML={{__html: data.profile.description}} /></h3>
+                    <h3>Description - <Markdown options={mdConfig}>{data.profile.description}</Markdown></h3>
 
                     <h3>Gender - {data.profile.gender}</h3>
 
