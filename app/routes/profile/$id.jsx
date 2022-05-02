@@ -2,6 +2,8 @@ import {useCatch, useLoaderData} from "remix";
 import idForm from "~/modules/idForm";
 import globalStylesUrl from "~/styles/global.css";
 import Markdown from "markdown-to-jsx";
+import {useEffect} from "react";
+import {changePageColours} from "~/modules/colours";
 
 const genders = {
     female: [
@@ -163,6 +165,7 @@ export default function Profile() {
 
     data.profile.description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '<a href="$2">$1</a>')
 
+    useEffect(() => changePageColours(data))
 
     return (
         <div className="remix__page">

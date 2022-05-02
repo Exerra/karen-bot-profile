@@ -1,6 +1,8 @@
 import { useCatch, Link, json, useLoaderData } from "remix";
 import lottieEmpty from "~/modules/lottie";
 import warnItem from "~/modules/warn";
+import {changePageColours} from "~/modules/colours";
+import {useEffect} from "react";
 
 export let loader = async ({ params }) => {
     if (params.id.match(/[0-9]{18}/) == false) {
@@ -62,6 +64,8 @@ export default function WarnView() {
 	if (data.warns.length == 0) {
 		warnView.push(lottieEmpty())
 	}
+
+    useEffect(() => changePageColours(data))
 
     return (
         <div>
