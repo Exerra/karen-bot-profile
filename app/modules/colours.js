@@ -11,11 +11,18 @@ const hexToRGB = (hex) => {
 	} : null;
 }
 
+
+/*
+ magic to convert strings to a nice pastel colour based on first two chars
+
+ every string with the same first two chars will generate the same pastel colour
+*/
 const changePageColours = ({ banner }) => {
 	if (banner?.color == null) return
 
 	let rgb = hexToRGB(banner?.color)
 
+	//lazy seeded random hack to get values from 0 - 256
 	let seed = banner?.color.charCodeAt(0) ^ banner?.color.charCodeAt(1);
 	let rand_1 = Math.abs((Math.sin(seed++) * 10000)) % 256;
 	let rand_2 = Math.abs((Math.sin(seed++) * 10000)) % 256;
