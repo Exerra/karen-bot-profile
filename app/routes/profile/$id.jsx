@@ -101,7 +101,7 @@ export let meta = (loader) => {
     metaObj = {
         title: title,
         description: description,
-        "theme-color": "#EFF5FB",
+        "theme-color": `#EFF5FB`,
         "twitter:card": "summary",
         "twitter:image": `https://cdn.exerra.xyz/discord/avatars/${data.id}/${data.avatar.id}.png`,
         "twitter:site": "@Exerra",
@@ -163,7 +163,7 @@ export default function Profile() {
         </>
     }
 
-    data.profile.description = data.profile.description.replace(/\[([^\]]+)\]\(([^\)]+)\)/, '<a href="$2">$1</a>')
+    if (data.id === "426452196893261824") data.banner.color = "eaa9cd" // I got bribed with 2 bread for this so this is never getting removed, gaymen goddess bless
 
     useEffect(() => changePageColours(data))
 
