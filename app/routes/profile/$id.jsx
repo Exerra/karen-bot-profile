@@ -163,7 +163,7 @@ export default function Profile() {
         </>
     }
 
-    if (data.id === "426452196893261824") data.banner.color = "eaa9cd" // I got bribed with 2 bread for this so this is never getting removed, gaymen goddess bless
+    if (data.id === "426452196893261824") data.banner.color = "eaa9cd" // I got bribed with 2 bread for this so this is never getting removed, gaymen goddess bless 😊😊🙏🙏
 
     useEffect(() => changePageColours(data))
 
