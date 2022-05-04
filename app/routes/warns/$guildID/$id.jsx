@@ -65,7 +65,7 @@ export default function WarnView() {
 		warnView.push(lottieEmpty())
 	}
 
-    if (data.id === "391878815263096833") data.banner.color = "eaa9cd"
+    if (data.id === "391878815263096833") data.banner.color = "eaa9cd" // yesnt
 
     useEffect(() => changePageColours(data))
 
